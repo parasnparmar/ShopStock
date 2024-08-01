@@ -42,6 +42,20 @@
             android:padding="8dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
+        <EditText
+
+            android:id="@+id/signup_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/lavender_border"
+            android:drawableLeft="@drawable/baseline_send_to_mobile_24"
+            android:drawablePadding="8dp"
+            android:hint="Mobile"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <EditText
                 android:layout_width="match_parent"
@@ -74,17 +88,28 @@
                 android:inputType="textPassword"
                 android:drawablePadding="8dp"/>
 
-            <Button
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Sign Up"
-                android:id="@+id/signup_button"
-                android:textSize="18sp"
-                android:background="@color/theme_light_blue"
-                android:layout_marginTop="30dp"
-                app:cornerRadius = "30dp"/>
+        <FrameLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <Button
+                android:id="@+id/btnSendOtp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@color/theme_light_blue"
+                android:text="Send OTP"
+                android:textSize="20sp"
+                app:cornerRadius="30dp" />
+            <ProgressBar
+                android:id="@+id/progressBarSendingOtp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/theme_light_blue"
+                android:visibility="gone" />
+        </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +120,7 @@
                 android:padding="8dp"
                 android:gravity="center"
                 android:textSize="18sp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"/>
     </LinearLayout>
 </ScrollView>

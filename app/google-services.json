@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "858172752451",
+    "project_id": "shopstockotp",
+    "storage_bucket": "shopstockotp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858172752451:android:adf9ea382d1cee70684af6",
+        "android_client_info": {
+          "package_name": "com.example.shopstock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL5FAxrPUL5r5lAb-jpRmqfACh7UuWIJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

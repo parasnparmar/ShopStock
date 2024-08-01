@@ -26,7 +26,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStocks"
         android:layout_width="350dp"
-        android:layout_height="631dp"
+        android:layout_height="500dp"
         android:layout_margin="15dp"
         android:background="@drawable/call_border"
         android:foregroundGravity="center"
@@ -35,6 +35,6 @@
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.44" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
