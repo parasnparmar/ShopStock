@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="stockBill"
+            type="com.example.shopstock.StocksData" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#C1DAEF"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/textViewStoreName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock Bill"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="30dp">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textViewItemName"-->
+        <!--            android:layout_width="85dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:text="Item Name"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textStyle="bold" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textViewQuantity"-->
+        <!--            android:layout_width="148dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:paddingLeft="50dp"-->
+        <!--            android:text="Quantity"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textStyle="bold" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textViewPrice"-->
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:paddingLeft="70dp"-->
+        <!--            android:text="Price"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+        <!--    &lt;!&ndash; Example item entry &ndash;&gt;-->
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        android:layout_marginBottom="8dp">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/item1Name"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="T-Shirt"-->
+        <!--            android:textColor="@color/black" />-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:text="10"-->
+        <!--            android:id="@+id/item1Quantity"/>-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="           Rs.499"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:id="@+id/item1Price"/>-->
+
+        <!--    </LinearLayout>-->
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        android:layout_marginBottom="8dp">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/item2Name"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="Shirt"-->
+        <!--            android:textColor="@color/black" />-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:text="  10"-->
+        <!--            android:id="@+id/item2Quantity"/>-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="           Rs.699"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:id="@+id/item2Price"/>-->
+
+        <!--    </LinearLayout>-->
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        android:layout_marginBottom="8dp">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/item3Name"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="Jeans"-->
+        <!--            android:textColor="@color/black" />-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:text="5"-->
+        <!--            android:id="@+id/item3Quantity"/>-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:text="           Rs.999"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:id="@+id/item3Price"/>-->
+
+        <!--    </LinearLayout>-->
+
+
+        <!--    &lt;!&ndash; Add more item entries here as needed &ndash;&gt;-->
+
+        <!--    <View-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="1dp"-->
+        <!--        android:background="#000"-->
+        <!--        android:layout_marginTop="8dp"-->
+        <!--        android:layout_marginBottom="8dp"/>-->
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/textViewTotalAmount"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="Total Bill :     Rs.16975/-"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textStyle="bold" />-->
+        <!--    <TextView-->
+        <!--        android:layout_marginTop="5dp"-->
+        <!--        android:id="@+id/disclimenar"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="to be paid within 30days by UPI/Cheque"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textStyle="italic" />-->
+
+
+        <!--    -->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/call_border"
+            android:stretchColumns="1">
+
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber"
+                    android:text="No"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName"
+                    android:text="Product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity"
+                    android:text="Qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtProductRate"
+                    android:text="Rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice"
+                    android:text="Price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber1"
+                    android:text="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName1"
+                    android:text="Stock1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity1"
+                    android:text="70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductRate1"
+                    android:text="200"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice1"
+                    android:text="14000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                     />
+            </TableRow>
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber2"
+                    android:text="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName2"
+                    android:text="Stock2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity2"
+                    android:text="40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductRate2"
+                    android:text="400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice2"
+                    android:text="16000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    />
+            </TableRow>
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber3"
+                    android:text="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName3"
+                    android:text="Stock3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity3"
+                    android:text="25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductRate3"
+                    android:text="100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice3"
+                    android:text="2500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    />
+            </TableRow>
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber4"
+                    android:text="4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName4"
+                    android:text="Stock4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity4"
+                    android:text="20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductRate4"
+                    android:text="1000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice4"
+                    android:text="20000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    />
+            </TableRow>
+            <TableRow android:background="@drawable/call_border">
+
+                <TextView
+                    android:id="@+id/txtSerialNumber5"
+                    android:text="5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductName5"
+                    android:text="Stock5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductQuantity5"
+                    android:text="05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductRate5"
+                    android:text="500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice5"
+                    android:text="25000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    />
+            </TableRow>
+
+        </TableLayout>
+        <TableLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/call_border"
+            android:layout_gravity="right">
+        <TableRow
+            android:background="@drawable/call_border">
+            <TextView
+                android:background="@drawable/call_border"
+                android:id="@+id/txtGrandTotal"
+                android:text="GRAND TOTAL: "
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+            <TextView
+                android:background="@drawable/call_border"
+                android:id="@+id/txtGrandTotalAmount"
+                android:textSize="25sp"
+                android:text="77500/-"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</layout>

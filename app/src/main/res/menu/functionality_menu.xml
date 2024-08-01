@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/view_stock"
+        android:title="View Stocks"
+        android:icon="@drawable/view"
+        />
+    <item
+        android:id="@+id/add_stock"
+        android:title="Add Stock"
+        android:icon="@drawable/addcart"/>
+    <item
+        android:id="@+id/out_of_stock"
+        android:title="Out Of Stock"/>
+    <item
+        android:id="@+id/stock_bill"
+        android:title="Stock Bill"/>
+</menu>
