@@ -10,7 +10,7 @@ import com.example.shopstock.databinding.ActivityOutOfStockBinding;
 
 import java.util.ArrayList;
 
-public class OutOfStock extends AppCompatActivity {
+public class OutOfStock extends AppCompatActivity implements StockAdapter.OnItemClickListener {
     RecyclerView recyclerView;
     ActivityOutOfStockBinding activityOutOfStockBinding;
     StockAdapter stockAdapter;
@@ -24,7 +24,7 @@ public class OutOfStock extends AppCompatActivity {
         setContentView(activityOutOfStockBinding.getRoot());
         initStocks();
 
-        stockAdapter = new StockAdapter(stocks);
+        stockAdapter = new StockAdapter(stocks,this);
         activityOutOfStockBinding.recyclerViewOutOfStocks.setAdapter(stockAdapter);
         activityOutOfStockBinding.recyclerViewOutOfStocks.setLayoutManager(new LinearLayoutManager(
                 this,
@@ -42,5 +42,10 @@ public class OutOfStock extends AppCompatActivity {
                     +i * 0,
                     i * 3000));
         }
+    }
+
+    @Override
+    public void onItemDeleteClick(StocksData stock) {
+
     }
 }

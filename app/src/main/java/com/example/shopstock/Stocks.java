@@ -11,7 +11,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stocks extends AppCompatActivity {
+public class Stocks extends AppCompatActivity implements StockAdapter.OnItemClickListener {
     RecyclerView recyclerViewStocks;
     ArrayList<StocksData> stocks;
     StockAdapter stockAdapter;
@@ -23,18 +23,22 @@ public class Stocks extends AppCompatActivity {
         setContentView(R.layout.activity_stocks);
 
         productDB = Room.databaseBuilder(this, ProductDB.class, "product_db")
-                .addMigrations(ProductDB.MIGRATION_1_2)
                 .build();
 
         recyclerViewStocks = findViewById(R.id.recyclerViewStocks);
         recyclerViewStocks.setLayoutManager(new LinearLayoutManager(this));
 
         stocks = new ArrayList<>();
-        stockAdapter = new StockAdapter(stocks);
+        stockAdapter = new StockAdapter(stocks, this);
         recyclerViewStocks.setAdapter(stockAdapter);
 
         // Load products from the database
         new LoadProductsTask().execute();
+    }
+
+    @Override
+    public void onItemDeleteClick(StocksData stocksData) {
+        new DeleteStockTask().execute(stocksData);
     }
 
     private class LoadProductsTask extends AsyncTask<Void, Void, List<Product>> {
@@ -47,9 +51,27 @@ public class Stocks extends AppCompatActivity {
         protected void onPostExecute(List<Product> products) {
             stocks.clear(); // Clear the list before adding new items
             for (Product product : products) {
-                stocks.add(new StocksData(stocks.size() + 1, product.getName(), product.getQuantity(), product.getPrice()));
+                stocks.add(new StocksData(product.getId(), product.getName(), product.getQuantity(), product.getPrice()));
             }
             stockAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private class DeleteStockTask extends AsyncTask<StocksData, Void, Void> {
+        @Override
+        protected Void doInBackground(StocksData... stocksData) {
+            Product product = new Product();
+            product.setId(stocksData[0].getId());
+            product.setName(stocksData[0].getTitle());
+            product.setQuantity(stocksData[0].getQuantity());
+            product.setPrice(stocksData[0].getPrice());
+            productDB.productDao().delete(product);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            new LoadProductsTask().execute(); // Reload products after deletion
         }
     }
 }
