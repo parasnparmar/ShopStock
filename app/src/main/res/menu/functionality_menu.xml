@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/view_stock"
-        android:title="View Stocks"
-        android:icon="@drawable/view"
-        />
-    <item
-        android:id="@+id/add_stock"
-        android:title="Add Stock"
-        android:icon="@drawable/addcart"/>
-    <item
-        android:id="@+id/out_of_stock"
-        android:title="Out Of Stock"/>
-    <item
-        android:id="@+id/stock_bill"
-        android:title="Stock Bill"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- First Group: Stock Management -->
+    <group android:id="@+id/group_stock_management">
+        <item
+            android:id="@+id/view_stock"
+            android:title="View Stocks"
+            android:icon="@drawable/view"
+            android:iconTint="@color/colorAccent"
+            android:titleTextColor="@color/colorPrimary"
+            />
+        <item
+            android:id="@+id/add_stock"
+            android:title="Add Stock"
+            android:icon="@drawable/addstock"
+            android:iconTint="@color/colorAccent"
+            android:titleTextColor="@color/colorPrimary"/>
+        <item
+            android:id="@+id/out_of_stock"
+            android:title="Out Of Stock"
+            android:icon="@drawable/outstock"
+            android:iconTint="@color/colorAccent"
+            android:titleTextColor="@color/colorPrimary"/>
+        <item
+            android:id="@+id/stock_bill"
+            android:title="Stock Bill"
+            android:icon="@drawable/shopstock"
+            android:iconTint="@color/colorAccent"
+            android:titleTextColor="@color/colorPrimary"/>
+    </group>
+
+    <!-- Second Group: Logout -->
+    <group android:id="@+id/group_logout">
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/baseline_logout_24"
+            android:iconTint="@color/colorError"
+            android:visible="true"
+            app:showAsAction="always"
+            android:titleTextColor="@color/colorError"/>
+    </group>
 </menu>

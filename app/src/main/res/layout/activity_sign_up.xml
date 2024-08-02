@@ -17,24 +17,30 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/otpsend"
+            android:layout_marginTop="10dp"
+            app:shapeAppearance="@style/CircularImageViewStyle"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="center"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="50dp"
             android:fontFamily="serif"
-            android:text="\tWelcome\n\tSignUp!"
+            android:text="Welcome\n SignUp!"
             android:textColor="@color/black"
             android:textSize="30dp" />
 
         <EditText
-
             android:id="@+id/signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:background="@drawable/lavender_border"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="8dp"

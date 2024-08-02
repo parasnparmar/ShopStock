@@ -15,13 +15,19 @@ class OtpVerification : AppCompatActivity() {
 
     private lateinit var activityOtpVerificationBinding: ActivityOtpVerificationBinding
     private lateinit var verificationId: String
+    private lateinit var email: String
+    private lateinit var password: String
+    private lateinit var dataBase: DataBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityOtpVerificationBinding = ActivityOtpVerificationBinding.inflate(layoutInflater)
         setContentView(activityOtpVerificationBinding.root)
 
+        dataBase = DataBase(this)
         verificationId = intent.getStringExtra("otp") ?: ""
+        email = intent.getStringExtra("email") ?: ""
+        password = intent.getStringExtra("password") ?: ""
 
         activityOtpVerificationBinding.btnSubmitOtp.setOnClickListener {
             val enteredOtp = getEnteredOtp()
@@ -54,10 +60,16 @@ class OtpVerification : AppCompatActivity() {
                     activityOtpVerificationBinding.progressBarVerfiyOtp.visibility = View.GONE
                     activityOtpVerificationBinding.btnSubmitOtp.visibility = View.VISIBLE
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
-                         val intent = Intent(this, Home::class.java)
-                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                         startActivity(intent)
+                        // Insert the user data into the database upon successful OTP verification
+                        val insert = dataBase.insertData(email, password)
+                        if (insert) {
+                            Toast.makeText(this, "SignUp Successful", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, Home::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "SignUp Failed", Toast.LENGTH_SHORT).show()
+                        }
                     } else {
                         Toast.makeText(this, "Invalid OTP", Toast.LENGTH_LONG).show()
                     }

@@ -10,4 +10,8 @@
         <color name="lavender">#8692f7</color>
         <color name="purple">#733D7C</color>
         <color name="theme_light_blue">#86B6DF</color>
+                <color name="colorAccent">#FF5722</color>
+                <color name="colorPrimary">#3F51B5</color>
+                <color name="colorError">#F44336</color>
+
 </resources>

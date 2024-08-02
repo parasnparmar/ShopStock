@@ -25,10 +25,6 @@
             android:exported="false"
             android:theme="@style/Theme.LogSignSQLPractice" />
         <activity
-            android:name=".LessStock"
-            android:exported="false"
-            android:theme="@style/Theme.LogSignSQLPractice" />
-        <activity
             android:name=".Stocks"
             android:exported="false"
             android:label="@string/title_activity_stocks"

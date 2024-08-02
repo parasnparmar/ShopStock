@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -38,7 +40,17 @@ public class Stocks extends AppCompatActivity implements StockAdapter.OnItemClic
 
     @Override
     public void onItemDeleteClick(StocksData stocksData) {
-        new DeleteStockTask().execute(stocksData);
+        new AlertDialog.Builder(this)
+                .setTitle("ShopStock")
+                .setMessage("Are you sure you want to delete this product?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new DeleteStockTask().execute(stocksData);
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     private class LoadProductsTask extends AsyncTask<Void, Void, List<Product>> {

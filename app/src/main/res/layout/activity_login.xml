@@ -13,16 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="50dp"
         android:fontFamily="serif"
         android:layout_marginLeft="20dp"
         android:text="Welcome-Back!\nLogin!"
         android:textColor="@color/black"
         android:textSize="30dp" />
-
-
-
 
             <EditText
                 android:id="@+id/login_email"
@@ -34,6 +31,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Email"
                 android:padding="8dp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -49,20 +47,31 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
+
+    <CheckBox
+        android:id="@+id/keep_me_logged_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="Keep me logged in"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textSize="10sp" />
 
             <Button
                 android:id="@+id/login_button"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@color/theme_light_blue"
                 android:text="Login"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:cornerRadius="30dp" />
 
             <TextView

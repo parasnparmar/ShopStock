@@ -8,13 +8,20 @@
     android:orientation="vertical"
     tools:context=".OtpVerification">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="150dp"
+        android:layout_marginTop="80dp"
+        android:layout_height="150dp"
+        android:src="@drawable/otprecived"
+        android:layout_gravity="center"
+        app:shapeAppearance="@style/CircularImageViewStyle"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OTP Verification"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="30sp"/>
 
@@ -23,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Please enter one time password sent to you"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:textSize="15sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -126,7 +133,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="50dp">
     <Button
         android:id="@+id/btnSubmitOtp"
         android:layout_width="200dp"
