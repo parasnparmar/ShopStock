@@ -47,6 +47,9 @@ dependencies {
     implementation("androidx.activity:activity:1.9.1")
     implementation("com.google.firebase:firebase-auth:23.0.0")
     kapt ("androidx.room:room-compiler:2.5.2")
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
+
 
     implementation ("androidx.core:core-ktx:1.13.1")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")

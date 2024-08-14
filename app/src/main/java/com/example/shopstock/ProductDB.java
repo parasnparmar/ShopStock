@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Product.class}, version = 2) // Update version number
+@Database(entities = {Product.class}, version = 3) // Update version number
 public abstract class ProductDB extends RoomDatabase {
     public abstract ProductDao productDao();
 

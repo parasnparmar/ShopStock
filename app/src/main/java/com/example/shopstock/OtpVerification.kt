@@ -64,7 +64,7 @@ class OtpVerification : AppCompatActivity() {
                         val insert = dataBase.insertData(email, password)
                         if (insert) {
                             Toast.makeText(this, "SignUp Successful", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, Home::class.java)
+                            val intent = Intent(this, ActivityLogin::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
                         } else {

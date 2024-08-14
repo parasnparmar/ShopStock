@@ -7,12 +7,14 @@ public class StocksData implements Serializable {
     private String title;
     private int quantity;
     private double price;
+    private String imagePath;
 
-    public StocksData(int id, String title, int quantity, double price){
+    public StocksData(int id, String title, int quantity, double price1, String imagePath){
         this.id = id;
         this.title = title;
         this.quantity = quantity;
         this.price = price;
+        this.imagePath = imagePath;
 
     }
     public int getId(){
@@ -30,7 +32,7 @@ public class StocksData implements Serializable {
     public int getQuantity(){
         return quantity;
     }
-    public void setQuantity(){
+    public void setQuantity(int quantity){
         this.quantity = quantity;
     }
     public double getPrice(){
@@ -39,4 +41,5 @@ public class StocksData implements Serializable {
     public void setPrice() {
         this.price = price;
     }
+    public String getImagePath() { return imagePath; }
 }

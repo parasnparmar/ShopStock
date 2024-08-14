@@ -53,7 +53,7 @@ public class OutOfStock extends AppCompatActivity implements StockAdapter.OnItem
             stocks.clear();
             for (Product product : products) {
                 if (product.getQuantity() == 0) {
-                    stocks.add(new StocksData(product.getId(), product.getName(), product.getQuantity(), product.getPrice()));
+                    stocks.add(new StocksData(product.getId(), product.getName(), product.getQuantity(), product.getPrice(),product.getImagePath()));
                 }
             }
             stockAdapter.notifyDataSetChanged();

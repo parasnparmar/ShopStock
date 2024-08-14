@@ -63,7 +63,7 @@ public class Stocks extends AppCompatActivity implements StockAdapter.OnItemClic
         protected void onPostExecute(List<Product> products) {
             stocks.clear(); // Clear the list before adding new items
             for (Product product : products) {
-                stocks.add(new StocksData(product.getId(), product.getName(), product.getQuantity(), product.getPrice()));
+                stocks.add(new StocksData(product.getId(), product.getName(), product.getQuantity(), product.getPrice(),product.getImagePath()));
             }
             stockAdapter.notifyDataSetChanged();
         }

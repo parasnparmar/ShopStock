@@ -11,7 +11,7 @@ import com.example.shopstock.databinding.ActivityLoginBinding;
 public class ActivityLogin extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-    DataBase database;
+    DataBase database; // Assuming this class handles your database operations
     private static final String PREFS_NAME = "LoginPrefs";
     private static final String KEY_KEEP_LOGGED_IN = "keepLoggedIn";
     private static final String KEY_USER_EMAIL = "userEmail";
@@ -22,6 +22,8 @@ public class ActivityLogin extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        // Initialize your database instance
         database = new DataBase(this);
 
         // Check if user is already logged in
@@ -33,13 +35,15 @@ public class ActivityLogin extends AppCompatActivity {
             String email = sharedPreferences.getString(KEY_USER_EMAIL, null);
             if (email != null) {
                 Intent intent = new Intent(ActivityLogin.this, Home.class);
-                intent.putExtra("username", email);
+                intent.putExtra("email", email); // Pass email as extra
+                intent.putExtra("username", email); // Pass email as username for display
                 startActivity(intent);
                 finish();
                 return;
             }
         }
 
+        // Set up login button click listener
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,17 +53,21 @@ public class ActivityLogin extends AppCompatActivity {
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(ActivityLogin.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 } else {
+                    // Check user credentials using the single database
                     boolean checkCredentials = database.checkEmailPassword(email, password);
                     if (checkCredentials) {
                         Toast.makeText(ActivityLogin.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
 
+                        // Save user session details
                         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
                         editor.putBoolean(KEY_KEEP_LOGGED_IN, binding.keepMeLoggedIn.isChecked());
                         editor.putString(KEY_USER_EMAIL, email);
                         editor.apply();
 
+                        // Navigate to Home activity
                         Intent intent = new Intent(ActivityLogin.this, Home.class);
-                        intent.putExtra("username", email);
+                        intent.putExtra("email", email); // Pass email as extra
+                        intent.putExtra("username", email); // Pass email as username for display
                         startActivity(intent);
                         finish();
                     } else {
@@ -69,6 +77,7 @@ public class ActivityLogin extends AppCompatActivity {
             }
         });
 
+        // Redirect to SignUp activity
         binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

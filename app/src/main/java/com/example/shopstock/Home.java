@@ -2,16 +2,18 @@ package com.example.shopstock;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.os.AsyncTask;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -26,23 +28,35 @@ public class Home extends AppCompatActivity {
     TextView txtUserName;
     PieChart pieChart;
     ProductDB productDB;
+    RecyclerView recyclerViewOutOfStock;
+    OutOfStockAdapter outOfStockAdapter;
+    List<Product> outOfStockProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Initialize PieChart and database
+        productDB = Room.databaseBuilder(getApplicationContext(),
+                        ProductDB.class, "product_db")
+                .fallbackToDestructiveMigration()
+                .build();
+
         pieChart = findViewById(R.id.pieChart);
-        productDB = Room.databaseBuilder(this, ProductDB.class, "product_db").build();
-
-        // Fetch data and setup PieChart
-        new LoadStockDataTask().execute();
-
-        // Display user name
-        Intent i = getIntent();
         txtUserName = findViewById(R.id.textViewUserName);
-        txtUserName.setText("Hi " + i.getStringExtra("username"));
+        recyclerViewOutOfStock = findViewById(R.id.recyclerViewOutOfStock);
+
+        recyclerViewOutOfStock.setLayoutManager(new LinearLayoutManager(this));
+
+        Intent intent = getIntent();
+        txtUserName.setText("Hi " + intent.getStringExtra("username"));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Fetch data and update PieChart and RecyclerView whenever the activity is resumed
+        new LoadStockDataTask().execute();
     }
 
     @Override
@@ -53,11 +67,9 @@ public class Home extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // Make the first group (Stock Management) visible and enabled
         menu.setGroupVisible(R.id.group_stock_management, true);
         menu.setGroupEnabled(R.id.group_stock_management, true);
 
-        // Make the second group (Logout) visible and enabled
         menu.setGroupVisible(R.id.group_logout, true);
         menu.setGroupEnabled(R.id.group_logout, true);
 
@@ -68,7 +80,7 @@ public class Home extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = null;
 
-        if(item.getItemId() == R.id.view_stock){
+        if (item.getItemId() == R.id.view_stock) {
             intent = new Intent(this, Stocks.class);
         } else if (item.getItemId() == R.id.add_stock) {
             intent = new Intent(this, AddStock.class);
@@ -85,7 +97,7 @@ public class Home extends AppCompatActivity {
             editor.apply();
 
             intent = new Intent(this, ActivityLogin.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear activity stack
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
         }
@@ -107,21 +119,28 @@ public class Home extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Product> products) {
             ArrayList<PieEntry> entries = new ArrayList<>();
+            outOfStockProducts = new ArrayList<>();
+
             for (Product product : products) {
                 if (product.getQuantity() > 0) {
                     entries.add(new PieEntry(product.getQuantity(), product.getName()));
+                } else {
+                    outOfStockProducts.add(product);
                 }
             }
 
+            // Update PieChart with available stock
             PieDataSet pieDataSet = new PieDataSet(entries, "Stocks");
             pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
             PieData pieData = new PieData(pieDataSet);
             pieChart.setData(pieData);
-
             pieChart.getDescription().setEnabled(false);
             pieChart.animateY(1000);
             pieChart.invalidate();
+
+            // Update RecyclerView with out-of-stock products
+            outOfStockAdapter = new OutOfStockAdapter(outOfStockProducts);
+            recyclerViewOutOfStock.setAdapter(outOfStockAdapter);
         }
     }
 }

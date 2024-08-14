@@ -11,6 +11,7 @@ public class Product {
     private String name;
     private int quantity;
     private double price;
+    private String imagePath;
 
     // Getters and setters...
 
@@ -44,5 +45,12 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getImagePath(){
+        return imagePath;
+    }
+    public void setImagePath(String imagePath){
+        this.imagePath = imagePath;
     }
 }
