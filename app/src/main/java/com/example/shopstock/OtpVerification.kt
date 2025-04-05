@@ -17,14 +17,14 @@ class OtpVerification : AppCompatActivity() {
     private lateinit var verificationId: String
     private lateinit var email: String
     private lateinit var password: String
-    private lateinit var dataBase: DataBase
+    private lateinit var dataBase: Database
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityOtpVerificationBinding = ActivityOtpVerificationBinding.inflate(layoutInflater)
         setContentView(activityOtpVerificationBinding.root)
 
-        dataBase = DataBase(this)
+        dataBase = Database(this)
         verificationId = intent.getStringExtra("otp") ?: ""
         email = intent.getStringExtra("email") ?: ""
         password = intent.getStringExtra("password") ?: ""

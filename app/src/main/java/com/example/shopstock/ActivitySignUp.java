@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ActivitySignUp extends AppCompatActivity {
     ActivitySignUpBinding binding;
-    DataBase dataBase;
+    Database dataBase;
     private static final String PREFS_NAME = "UserPrefs";
     private static final String KEY_LOGGED_IN = "loggedIn";
 
@@ -28,7 +28,7 @@ public class ActivitySignUp extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        dataBase = new DataBase(this);
+        dataBase = new Database(this);
 
         binding.btnSendOtp.setOnClickListener(new View.OnClickListener() {
             @Override

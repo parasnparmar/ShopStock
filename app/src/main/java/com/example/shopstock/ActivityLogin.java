@@ -11,7 +11,7 @@ import com.example.shopstock.databinding.ActivityLoginBinding;
 public class ActivityLogin extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-    DataBase database; // Assuming this class handles your database operations
+    Database database; // Assuming this class handles your database operations
     private static final String PREFS_NAME = "LoginPrefs";
     private static final String KEY_KEEP_LOGGED_IN = "keepLoggedIn";
     private static final String KEY_USER_EMAIL = "userEmail";
@@ -24,7 +24,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         // Initialize your database instance
-        database = new DataBase(this);
+        database = new Database(this);
 
         // Check if user is already logged in
         SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
